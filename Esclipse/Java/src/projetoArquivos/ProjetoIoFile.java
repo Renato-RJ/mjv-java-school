@@ -1,10 +1,3 @@
-//A classe File do pacote IO tem como função, gerar uma representação abstrata de nomes de caminho de arquivos e diretórios. Ela é 
-//necessária visto que os sistemas operacionais e/ou interfaces de usuário utilizam string como nome de caminhos de arquivo e 
-//diretório, e com caracteres separadores específicos de cada S.O.
-//A classe também perrmite, através de seus métodos, criar, renomear e excluir arquivos, criar novos diretórios, listar  conteúdos
-//de diretórios, determinar atributos de arquivos entre outros.
-
-
 package projetoArquivos;
 
 import java.io.File;
@@ -17,6 +10,7 @@ public class ProjetoIoFile {
 		File arquivo = new File(caminhoDir + "\\Teste.txt");
 			
 		boolean diretorio = caminhoDir.mkdirs();
+		
 		
 		if (diretorio);	
 			try {
