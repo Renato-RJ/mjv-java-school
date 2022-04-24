@@ -9,7 +9,7 @@ public class LerTxt{
 	public String dadoLido () {
 		String dadosPessoais = "";
 			
-		Path local = Paths.get("C:\\estudos\\mjv-java-school\\agua-luz-output\\agua-luz-contratos.txt");
+		Path local = Paths.get("C:\\estudo\\mjv-java-school\\agua-luz-output\\agua-luz-contratos.txt");
 			
 		try {
 			String linhaTxt = Files.readString(local);
