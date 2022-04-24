@@ -1,4 +1,4 @@
-package com.mjv.agualuz;
+package com.mjv.agualuzatracao;
 
 public enum Paises {
 	Espanha	("ES"),
