@@ -4,10 +4,10 @@ import java.time.LocalDate;
 import java.time.LocalTime;
 
 public class Cadastro {
-	String nome, cpf,rg,logradouro,complemento,bairro,cidade,uf,cep,tel,numEnd, protocolo;
-    int ano,mes,dia,horaVar=00,minuto=00;
+	String nome, cpf,rg,logradouro,complemento,bairro,cidade,uf,cep,tel;
+	int numEnd, protocolo;
+	double valor;
     TipoServico tipoServico;
-    double valor;
     TipoNotificacao tipoNotificacao;
     Paises pais;
     LocalDate data = LocalDate.of(0001, 01, 01);
@@ -89,47 +89,17 @@ public class Cadastro {
 	public void setTel(String tel) {
 		this.tel = tel;
 	}
-	public String getNumEnd() {
+	public Integer getNumEnd() {
 		return numEnd;
 	}
-	public void setNumEnd(String numEnd) {
+	public void setNumEnd(Integer numEnd) {
 		this.numEnd = numEnd;
 	}
-	public String getProtocolo() {
+	public Integer getProtocolo() {
 		return protocolo;
 	}
-	public void setProtocolo(String protocolo) {
+	public void setProtocolo(Integer protocolo) {
 		this.protocolo = protocolo;
-	}
-	public int getAno() {
-		return ano;
-	}
-	public void setAno(int ano) {
-		this.ano = ano;
-	}
-	public int getMes() {
-		return mes;
-	}
-	public void setMes(int mes) {
-		this.mes = mes;
-	}
-	public int getDia() {
-		return dia;
-	}
-	public void setDia(int dia) {
-		this.dia = dia;
-	}
-	public int getHoraVar() {
-		return horaVar;
-	}
-	public void setHoraVar(int horaVar) {
-		this.horaVar = horaVar;
-	}
-	public int getMinuto() {
-		return minuto;
-	}
-	public void setMinuto(int minuto) {
-		this.minuto = minuto;
 	}
 	public TipoServico getTipoServico() {
 		return tipoServico;

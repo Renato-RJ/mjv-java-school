@@ -17,7 +17,7 @@ public class FormatarCsv {
 				txt.append(logradouro.substring(0, 20).toUpperCase()+";");
 			else 
 				txt.append(String.format("%-20s", logradouro.toUpperCase())+";");
-		txt.append(String.format("%06d", Long.valueOf(cliente.getNumEnd().replaceAll("\\D","")))+";");
+		txt.append(String.format("%06d", Long.valueOf(cliente.getNumEnd()))+";");
 		String complemento = cliente.getComplemento();
 			if (complemento.length() >=10)
 				txt.append(complemento.substring(0, 10).toUpperCase()+";");
@@ -40,7 +40,7 @@ public class FormatarCsv {
 				txt.append(String.format("%-2s", uf.toUpperCase())+";");
 		txt.append(String.format("%08d", Long.valueOf(cliente.getCep().replaceAll("\\D","")))+";");
 		txt.append(cliente.getPais().getSigla()+";");
-		txt.append(String.format("%010d", Long.valueOf(cliente.getProtocolo().replaceAll("\\D","")))+";");
+		txt.append(String.format("%010d", Long.valueOf(cliente.getProtocolo()))+";");
 		txt.append(cliente.getData().toString().replaceAll("\\D","")+";");
 		txt.append(cliente.getHora().toString().replaceAll("\\D","")+";");
 		txt.append(cliente.getTipoServico().getSigla()+";");

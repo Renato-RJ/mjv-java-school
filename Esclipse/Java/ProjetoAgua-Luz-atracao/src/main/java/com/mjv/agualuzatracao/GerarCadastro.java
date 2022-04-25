@@ -20,7 +20,7 @@ public class GerarCadastro {
 		System.out.println("Logradouro:");
 		cliente.setLogradouro(leituraTeclado.nextLine());
 		System.out.println("Informe o número da residência: ");
-		cliente.setNumEnd(leituraTeclado.nextLine());
+		cliente.setNumEnd(Integer.parseInt(leituraTeclado.nextLine()));
 		System.out.println("Complemento:");
 		cliente.setComplemento(leituraTeclado.nextLine());
 		System.out.println("Bairro:");
@@ -34,7 +34,7 @@ public class GerarCadastro {
 		System.out.println("País:");
 		cliente.setPais(Paises.valueOf(leituraTeclado.nextLine()));
 		System.out.println("Protocolo: ");
-		cliente.setProtocolo(leituraTeclado.nextLine());
+		cliente.setProtocolo(Integer.parseInt(leituraTeclado.nextLine()));
 		System.out.println("Informe a data desejada para instalação: \n(dd)\n(MM)\n(aaaa)");
 		String dia = leituraTeclado.nextLine();
 		String mes = leituraTeclado.nextLine();
