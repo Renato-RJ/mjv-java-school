@@ -1,9 +1,9 @@
-package com.mjv.agualuzatracao;
+package com.mjv.agualuzatracao.enums;
 
 public enum Paises {
-	Espanha	("ES"),
-	Canadá ("CA"),
-	Brasil ("BR");
+	ESPANHA	("ES"),
+	CANADA ("CA"),
+	BRASIL ("BR");
 	
 	private String sigla;
 		private Paises(String sigla){

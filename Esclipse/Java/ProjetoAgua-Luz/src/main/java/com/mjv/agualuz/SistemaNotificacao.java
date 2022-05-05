@@ -21,21 +21,19 @@ public class SistemaNotificacao {
 		String data = lido.substring(165, 173);
 		String hora = lido.substring(173, 177);
 		String tipoServico = lido.substring(177, 178);
-		if (tipoServico.toString()=="A") {
-			servico = "¡gua";
-		}
-		else {
+		if (tipoServico.equals("A"))
+			servico = "√Ågua";
+		else 
 			servico = "Luz";
-		}
-		String valor = lido.substring(178, 183);
+		Double valor = Double.parseDouble(lido.substring(178, 183))/100;
 		String tipoNotificacao = lido.substring(183, 184);
 		
 		StringBuilder mensagem = new StringBuilder();
 		
-		mensagem.append("Senhor (a) " + nome + " cpf de n˙mero " + cpf + ", Informamos que conforme contrato com "
-				+ "protocolo de n˙mero " + protocolo + " est· \n agendado para a data\\hora " + data + " " 
-				+ hora.substring(0, 2)+":"+hora.substring(2, 4) +"h, instalaÁ„o do serviÁo de " + servico + " com taxa de valor " + valor + " em "
-						+ "sua residÍncia localizada no \n endereÁo abaixo:\n\n"
+		mensagem.append(" Senhor (a) " + nome + " cpf de n√∫mero " + cpf + ", Informamos que conforme contrato com "
+				+ "protocolo de n√∫mero " + protocolo + " est√° \n agendado para a data\\hora " + data + " " 
+				+ hora.substring(0, 2)+":"+hora.substring(2, 4) +"h, instala√ß√£o do servi√ßo de " + servico + " com taxa de valor R$" + valor + " em "
+						+ "sua resid√™ncia localizada no \n endere√ßo abaixo:\n\n"
 				
 						+ "	Logradouro: " + logradouro + ", " + num + "\n"
 						+ "	Complemento: " + complemento + "\n"
