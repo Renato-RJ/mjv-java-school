@@ -23,10 +23,13 @@ public class padronizadorInformacao {
 		return valorFormatado;
 		
 	}
-	public static LocalDate formatarData(LocalDate data) {
-		LocalDateTime today = LocalDateTime.now();
-		DateTimeFormatter formatoData = DateTimeFormatter.ofLocalizedDateTime(FormatStyle.SHORT).withLocale ( new Locale("pt", "BR") );
-		LocalDate dataFormatada = LocalDate.parse(today.format ( formatoData ));
+	public static String formatarData(String dataString) {
+		String ano = dataString.substring(0 , 4);
+		String mes = dataString.substring(4, 6);
+		String dia = dataString.substring(6, 8);
+		LocalDate data = LocalDate.parse(ano+"-"+mes+"-"+dia); 
+		DateTimeFormatter formatoData = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+		String dataFormatada = data.format(formatoData);
 		return dataFormatada;
 	}
 	

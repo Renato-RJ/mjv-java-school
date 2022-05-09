@@ -4,9 +4,9 @@ import java.time.LocalDate;
 import java.time.LocalTime;
 import java.util.Scanner;
 
-import com.mjv.agualuzatracao.model.Paises;
-import com.mjv.agualuzatracao.model.TipoNotificacao;
-import com.mjv.agualuzatracao.model.TipoServico;
+import com.mjv.agualuzatracao.enuns.Paises;
+import com.mjv.agualuzatracao.enuns.TipoNotificacao;
+import com.mjv.agualuzatracao.enuns.TipoServico;
 import com.mjv.agualuzatracao.service.GravarInformacaoTxtCsv;
 
 public class SistemaGravar {

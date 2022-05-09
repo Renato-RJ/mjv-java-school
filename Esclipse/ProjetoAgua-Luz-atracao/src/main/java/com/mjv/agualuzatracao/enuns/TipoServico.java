@@ -1,4 +1,4 @@
-package com.mjv.agualuzatracao.model;
+package com.mjv.agualuzatracao.enuns;
 
 public enum TipoServico {
 	AGUA	("A"),

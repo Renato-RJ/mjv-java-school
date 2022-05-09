@@ -1,4 +1,4 @@
-package com.mjv.agualuzatracao.model;
+package com.mjv.agualuzatracao.enuns;
 
 public enum TipoNotificacao {
 	SMS	("S"),

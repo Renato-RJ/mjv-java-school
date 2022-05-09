@@ -1,18 +1,22 @@
-package com.mjv.agualuz;
+package com.mjv.agualuz.app;
+
+import java.time.LocalDate;
 
 import com.mjv.agualuz.service.GravarMsgPronta;
 import com.mjv.agualuz.service.LerTxt;
+import com.mjv.agualuz.util.padronizadorInformacao;
 
 public class SistemaNotificacao {
 	public static void main (String[] args) {
 		LerTxt info = new LerTxt();
 		String lido = info.dadoLido(),servico;
+		padronizadorInformacao padrao = new padronizadorInformacao();
 				
-		String cpf = lido.substring(0, 11);
+		String cpf = padrao.formatarCpf(lido.substring(0, 11));
 		String rg = lido.substring(12, 21);
 		String nome = lido.substring(21, 51);
 		String tel = lido.substring(51, 62);
-		String logradouro = lido.substring(62, 81);
+		String logradouro = lido.substring(62, 82);
 		String num = lido.substring(82, 88);
 		String complemento = lido.substring(88, 98);
 		String bairro = lido.substring(98, 113);
@@ -21,10 +25,10 @@ public class SistemaNotificacao {
 		String cep = lido.substring(145, 153);
 		String pais = lido.substring(153, 155);
 		String protocolo = lido.substring(155, 165);
-		String data = lido.substring(165, 173);
+		String data = padrao.formatarData(lido.substring(165, 173));
 		String hora = lido.substring(173, 177);
 		String tipoServico = lido.substring(177, 178);
-		if (tipoServico.toString()=="A") {
+		if (tipoServico.toString().equals("A")) {
 			servico = "Água";
 		}
 		else {
