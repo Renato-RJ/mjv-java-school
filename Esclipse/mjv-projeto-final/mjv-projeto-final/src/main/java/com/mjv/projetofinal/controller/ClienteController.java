@@ -8,9 +8,11 @@ import org.springframework.web.bind.annotation.*;
 import com.mjv.projetofinal.model.Cliente;
 import com.mjv.projetofinal.repository.ClienteRepository;
 
+@RestController
+@RequestMapping("/cliente")
 public class ClienteController {
-	@Autowired
-	ClienteRepository clienteRepository;
+		@Autowired
+	private ClienteRepository clienteRepository;
 	
 	@PostMapping
 	public void gravar(@RequestBody Cliente cliente) {
