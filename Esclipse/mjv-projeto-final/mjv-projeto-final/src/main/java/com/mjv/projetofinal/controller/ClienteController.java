@@ -22,4 +22,8 @@ public class ClienteController {
 	public List<Cliente> listar(){
 		return clienteRepository.findAll();
 		}
+	@DeleteMapping("{id}")
+	public void deletar(@PathVariable Integer id, @RequestBody Cliente cliente) {
+		clienteRepository.delete(cliente);
+	}
 }

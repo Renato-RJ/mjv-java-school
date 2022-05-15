@@ -1,5 +1,7 @@
 package com.mjv.projetofinal.model;
 
+import java.util.Objects;
+
 import javax.persistence.*;
 
 @Entity
@@ -57,5 +59,20 @@ public class Endereco {
 	public void setCep(String cep) {
 		this.cep = cep;
 	}
-
+	@Override
+	public int hashCode() {
+		return Objects.hash(id);
+	}
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Endereco other = (Endereco) obj;
+		return Objects.equals(id, other.id);
+	}
+	
 }
