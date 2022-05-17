@@ -27,4 +27,5 @@ public class EquipamentoController {
 	public void deletar(@PathVariable Integer id, @RequestBody Equipamento equipamento) {
 		equipamentoRepository.delete(equipamento);
 	}
+	
 }

@@ -28,6 +28,7 @@ public class Equipamento {
 	@Column(name="valor_unitario")
 	private Double valorUnitario;
 	
+	
 	public Integer getId() {
 		return id;
 	}

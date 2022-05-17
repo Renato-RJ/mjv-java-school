@@ -18,7 +18,7 @@
 //	private double valorFinal;
 //	@OneToMany
 //	@JoinColumn(name="locacao_item_id")
-//	private List <LocacaoItem> intens;
+//	private List <LocacaoItem> itens;
 //	public Integer getId() {
 //		return id;
 //	}

@@ -17,6 +17,7 @@ public class LocacaoItemController {
 
 	@PostMapping
 	public void gravar(@RequestBody LocacaoItem locacaoItem) {
+		//System.out.println(locacaoItem.getEquipamento());
 		locacaoItemRepository.save(locacaoItem);
 	}
 

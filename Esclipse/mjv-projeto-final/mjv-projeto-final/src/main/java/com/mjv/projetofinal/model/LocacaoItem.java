@@ -6,64 +6,98 @@ import java.util.Objects;
 
 import javax.persistence.*;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 @Entity
-@Table(name="locacao_item")
+@Table(name = "locacao_item")
 public class LocacaoItem {
 	@Id
-	@GeneratedValue(strategy=GenerationType.IDENTITY)
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
+	@Column(name = "subtotal")
 	private Double subtotal;
-	@Column (name="data_retirada")
+	@Column(name = "data_retirada")
 	private LocalDate dataRetirada;
-	@Column(name="data_devolucao")
+	@Column(name = "data_devolucao")
 	private LocalDate dataDevolucao;
-	@Column(name="quantidade_dias")
+	@Column(name = "quantidade_dias")
 	private Long quantidadeDias;
-	@Column(name="equipamento_id")
-	private Integer equipamentoId;
-	
-	
-	
+	@ManyToOne(fetch = FetchType.LAZY)
+	@JoinColumn(name="equipamento_id")
+	private Equipamento equipamento;
+	@Column(name = "valor_diaria")
+	private Double valorDiaria;
+
+	//@JsonIgnore
+	public Equipamento getEquipamento() {
+		return equipamento;
+	}
+	//@JsonIgnore
+	public void setEquipamento(Equipamento equipamento) {
+		this.equipamento = equipamento;
+	}
+//	public Integer getEquipamentoId() {
+//		return equipamentoId;
+//	}
+//
+//	public void setItemId(Integer equipamentoId) {
+//		this.equipamentoId = equipamentoId;
+//	}
+
 	public Integer getId() {
 		return id;
 	}
+
 	public void setId(Integer id) {
 		this.id = id;
 	}
+
 	public Double getSubtotal() {
 		return subtotal;
 	}
+
 	public void setSubtotal(Double subtotal) {
 		this.subtotal = subtotal;
 	}
-	public Integer getEquipamentoId() {
-		return equipamentoId;
-	}
-	public void setEquipamentoId(Integer equipamentoId) {
-		this.equipamentoId = equipamentoId;
-	}
+
 	public LocalDate getDataRetirada() {
 		return dataRetirada;
 	}
+
 	public void setDataRetirada(LocalDate dataRetirada) {
 		this.dataRetirada = dataRetirada;
 	}
+
 	public LocalDate getDataDevolucao() {
 		return dataDevolucao;
 	}
+
 	public void setDataDevolucao(LocalDate dataDevolucao) {
 		this.dataDevolucao = dataDevolucao;
 	}
+
 	public Long getQuantidadeDias() {
-		return quantidadeDias = (long) Math.toIntExact(ChronoUnit.DAYS.between(getDataRetirada(), getDataDevolucao()));
+		return quantidadeDias;
 	}
+
 	public void setQuantidadeDias(Long quantidadeDias) {
-		this.quantidadeDias = quantidadeDias;
+		this.quantidadeDias = (long) Math.toIntExact(ChronoUnit.DAYS.between(getDataRetirada(), getDataDevolucao()));
+		;
 	}
+
+	public Double getValorDiaria() {
+		return valorDiaria;
+	}
+
+	public void setValorDiaria(Double a, Equipamento equipamento) {
+		this.valorDiaria = (double) equipamento.getValorUnitario();
+	}
+
 	@Override
 	public int hashCode() {
 		return Objects.hash(id);
 	}
+
 	@Override
 	public boolean equals(Object obj) {
 		if (this == obj)
@@ -75,7 +109,5 @@ public class LocacaoItem {
 		LocacaoItem other = (LocacaoItem) obj;
 		return Objects.equals(id, other.id);
 	}
-	
-	
-	
+
 }
