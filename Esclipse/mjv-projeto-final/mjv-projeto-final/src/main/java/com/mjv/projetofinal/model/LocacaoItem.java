@@ -6,21 +6,26 @@ import java.util.Objects;
 
 import javax.persistence.*;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
 
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
+ 
 @Entity
 @Table(name = "locacao_item")
 public class LocacaoItem {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@JsonIgnore
 	private Integer id;
 	@Column(name = "subtotal")
+	@JsonIgnore
 	private Double subtotal;
 	@Column(name = "data_retirada")
 	private LocalDate dataRetirada;
 	@Column(name = "data_devolucao")
 	private LocalDate dataDevolucao;
 	@Column(name = "quantidade_dias")
+	@JsonIgnore
 	private Long quantidadeDias;
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name="equipamento_id")
@@ -28,21 +33,20 @@ public class LocacaoItem {
 	@Column(name = "valor_diaria")
 	private Double valorDiaria;
 
-	//@JsonIgnore
 	public Equipamento getEquipamento() {
 		return equipamento;
 	}
-	//@JsonIgnore
+	
 	public void setEquipamento(Equipamento equipamento) {
-		this.equipamento = equipamento;
+		this.equipamento = equipamento;;
 	}
-//	public Integer getEquipamentoId() {
-//		return equipamentoId;
-//	}
-//
-//	public void setItemId(Integer equipamentoId) {
-//		this.equipamentoId = equipamentoId;
-//	}
+	public Double getValorDiaria() {
+		return valorDiaria;
+	}
+
+	public void setValorDiaria(Double valorDiaria) {
+		this.valorDiaria = valorDiaria;
+	}
 
 	public Integer getId() {
 		return id;
@@ -50,14 +54,6 @@ public class LocacaoItem {
 
 	public void setId(Integer id) {
 		this.id = id;
-	}
-
-	public Double getSubtotal() {
-		return subtotal;
-	}
-
-	public void setSubtotal(Double subtotal) {
-		this.subtotal = subtotal;
 	}
 
 	public LocalDate getDataRetirada() {
@@ -81,16 +77,16 @@ public class LocacaoItem {
 	}
 
 	public void setQuantidadeDias(Long quantidadeDias) {
-		this.quantidadeDias = (long) Math.toIntExact(ChronoUnit.DAYS.between(getDataRetirada(), getDataDevolucao()));
+		this.quantidadeDias = quantidadeDias;
 		;
 	}
 
-	public Double getValorDiaria() {
-		return valorDiaria;
+	public Double getSubtotal() {
+		return subtotal;
 	}
 
-	public void setValorDiaria(Double a, Equipamento equipamento) {
-		this.valorDiaria = (double) equipamento.getValorUnitario();
+	public void setSubtotal(Double subtotal) {
+		this.subtotal = subtotal;
 	}
 
 	@Override

@@ -5,8 +5,10 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import com.mjv.projetofinal.model.Equipamento;
 import com.mjv.projetofinal.model.LocacaoItem;
 import com.mjv.projetofinal.repository.LocacaoItemRepository;
+import com.mjv.projetofinal.service.LocacaoItemService;
 
 @RestController
 @RequestMapping("/locacao_item")
@@ -14,11 +16,13 @@ public class LocacaoItemController {
 
 	@Autowired
 	LocacaoItemRepository locacaoItemRepository;
+	
+	@Autowired
+	private LocacaoItemService servico;
 
 	@PostMapping
 	public void gravar(@RequestBody LocacaoItem locacaoItem) {
-		//System.out.println(locacaoItem.getEquipamento());
-		locacaoItemRepository.save(locacaoItem);
+		servico.gravar(locacaoItem);
 	}
 
 	@GetMapping
