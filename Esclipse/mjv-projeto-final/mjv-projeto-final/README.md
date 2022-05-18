@@ -61,18 +61,6 @@ mvn spring-boot:run
 mvn clean install
 ```
 
-## 🌐 Diagramas
-
-### Diagrama de Classe
-<p align="center">
-    <img align="center" width="700" src="https://github.com/Paulo-Ultra/MJV-Projeto-Final/blob/main/MJV%20-%20Projeto%20Final/Diagrama%20de%20Classe.jpeg" style="max-width:100%;">
-</p>
-
-### Diagrama do Banco de Dados
-<p align="center">
-    <img align="center" width="700" src="https://github.com/Paulo-Ultra/MJV-Projeto-Final/blob/main/MJV%20-%20Projeto%20Final/Diagrama%20Banco%20de%20Dados.jpg" style="max-width:100%;">
-</p>
-
 ## 🌐 Endpoints
 📄  As urls interativas, construídas através do [Swagger](https://swagger.io/tools/swagger-ui/)
 
