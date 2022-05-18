@@ -24,8 +24,8 @@ public class LocacaoService {
 	private LocacaoItemRepository repItem;
 	
 	public void gravar(Locacao locacao) {
+		Double total = 0.0;
 		for(LocacaoItem item: locacao.getEquipamento()) {
-			Double total = 0.0;
 			LocalDate data=LocalDate.now();
 			if (item.getId()!=0) {
 			LocacaoItem locacaoItem = repItem.getById(item.getId());
@@ -40,7 +40,6 @@ public class LocacaoService {
 				item.setSubtotal(item.getQuantidadeDias() * item.getValorDiaria());
 				total = total + item.getSubtotal();
 				locacao.setData(data);
-				locacao.setValorFinal(total);
 			}
 			else{
 				item.setQuantidadeDias((long) Math.toIntExact(ChronoUnit.DAYS.between(item.getDataRetirada(), item.getDataDevolucao())));
@@ -48,10 +47,12 @@ public class LocacaoService {
 				item.setValorDiaria(equipamento.getValorUnitario());
 				item.setSubtotal(item.getQuantidadeDias()*item.getValorDiaria());
 				total = total + item.getSubtotal();
-				locacao.setData(data);
-				locacao.setValorFinal(total);	
+				locacao.setData(data);	
 			}
+			
 		}
+		
+		locacao.setValorFinal(total);
 		rep.save(locacao);
 	}
 }
