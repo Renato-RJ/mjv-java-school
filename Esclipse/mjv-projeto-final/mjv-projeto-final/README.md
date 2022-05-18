@@ -1,4 +1,4 @@
-## Projeto final
+## Projeto final - MJV Java SCHOOL
 
 ### Obrigatoriedades:
 Apresentar a API sua aplicação devidamente documentada para uma demonstração de uma jornada de consumo dos recursos pertinentes a proposta do teu projeto.
@@ -8,7 +8,7 @@ Detalhar no README do projeto modelo de consumo de endpoint para facilitar a uti
 
 ### Forma de entrega: 
 
-Disponibilizar o link do github do projeto bem descrito quanto às funcionalidades, implementações relevantes, participação dos membros da equipe, READEME com a jornada na plataforma e a API Rest documentada pelo Swagger em um ambiente Azure, Heroku ou OnPromisse.
+Disponibilizar o link do github do projeto bem descrito quanto às funcionalidades, implementações relevantes, participação dos membros da equipe, READEME com a jornada na plataforma e a API Rest documentada pelo Swagger, opcionalmente em um ambiente Azure, Heroku ou OnPromisse.
 
 ### Critérios de Aceite - Expectativa da Entrega: 
 
@@ -23,7 +23,7 @@ Disponibilizar o link do github do projeto bem descrito quanto às funcionalidad
  
 ## ⚙️ LocaBike - Projeto Final / Repositório 
 
-- [Repositório do Projeto](https://github.com/Renato-RJ/mjv-java-school/tree/main/Esclipse/mjv-projeto-final/mjv-projeto-final)
+- [Repositório do Projeto Final](https://github.com/Renato-RJ/mjv-java-school/tree/main/Esclipse/mjv-projeto-final/mjv-projeto-final)
 
   
 
@@ -44,7 +44,7 @@ Disponibilizar o link do github do projeto bem descrito quanto às funcionalidad
 
 * [JDK 11: Para executar o Projeto](https://www.oracle.com/java/technologies/downloads/#java11)
 
-* [Maven 3.8.3: Para executar build do Projeto](https://maven.apache.org/download.cgi)
+* [Maven 4.0.0 : Para executar build do Projeto](https://maven.apache.org/download.cgi)
 
 ## ⚙️ Executando o projeto
 ``` shell 
@@ -63,15 +63,268 @@ mvn clean install
 
 ## 🌐 Diagramas
 
+### Diagrama de Classe
+<p align="center">
+    <img align="center" width="700" src="https://github.com/Paulo-Ultra/MJV-Projeto-Final/blob/main/MJV%20-%20Projeto%20Final/Diagrama%20de%20Classe.jpeg" style="max-width:100%;">
+</p>
 
+### Diagrama do Banco de Dados
+<p align="center">
+    <img align="center" width="700" src="https://github.com/Paulo-Ultra/MJV-Projeto-Final/blob/main/MJV%20-%20Projeto%20Final/Diagrama%20Banco%20de%20Dados.jpg" style="max-width:100%;">
+</p>
 
 ## 🌐 Endpoints
 📄  As urls interativas, construídas através do [Swagger](https://swagger.io/tools/swagger-ui/)
 
-| Método | URL        | Finalidade       |   
+|*_Método_* | *_URL_*       | *Finalidade*       |   
 |--------|------------|------------------|
-| POST   |/clients | Adiciona um novo cliente|
-| GET    |/clients  | Lista todos os clientes|
-| GET    |/clients/{id} | Detalha um cliente pelo id|
-| PUT    |/clients/{id} | Atualiza o cliente pelo id|
-| DELETE    |/clients/{id}/delete | Desativa o cliente pelo id|
+| POST   |/cliente | Cadastra um novo cliente|
+| GET    |/cliente | Mostra todos os clientes|
+| PUT    |/cliente | Atualiza um cliente|
+| DELETE    |/cliente/{id} | Exclui o cliente pelo id|
+|    | |  |
+| *Método* | *URL*        | *Finalidade*       |
+| POST   |/equipamento | Cadastra um novo equipamento|
+| GET    |/equipamento | Lista todos os equipamentos|
+| DELETE    |/equipamento/{id} | Desativa o equipamento pelo id|
+|    | |  |
+| *Método* | *URL*        | *Finalidade*       |
+| POST   |/locacao_item | Cria/Simula um orçamento de locação|
+| GET    |/locacao_item | Lista todos os orçamentos das locações|
+| GET    |/locacao_item/{id} | Detalha um orçamento pelo id|
+| PUT    |/locacao_item | Altera um orçamento de locação|
+| DELETE    |/locacao_item/{id} | Exclui o item da locação pelo id|
+|    | |  |
+| *Método* | *URL*        | *Finalidade*       |
+| POST   |/locacao | Faz uma alocação/Conclui um orçamento|
+| GET    |/locacao| Lista todos as locações|
+| DELETE    |/locacao/{id} | Cancela uma locação pelo id|
+
+##### Apresentação
+
+1. Cadastro/Alteração/Exclusão de cliente(s);
+2. Cadastro/Alteração/Exclusão de equipamento(s);
+3. Fazer uma simulação de uma locação, alterar e excluir;
+4. Fechar uma locação direta, uma através do orçamento; uma multiplos itens e cancelar locação.
+
+##### JSON Cadastros
+
+* Cadastrando Cliente
+``` shell 
+*CLIENTE 01:
+
+{
+"id": 0,
+"nome": "Antonio Fonseca",
+"cpf": "3456123789",
+"contato": "22999866877",
+"endereco": {
+"id": 0,
+"rua": "Rua 20 de maio",
+"numero": "48",
+"complemento": "Casa",
+"bairro": "Penha",
+"cidade": "São Paulo",
+"estado": "SP",
+"cep": "34512678"
+}
+}
+*CLIENTE 02:
+{
+"id": 0,
+"nome": "José Pereira",
+"cpf": "123456789",
+"contato": "22999887766",
+"endereco": {
+"id": 0,
+"rua": "Beira Mar",
+"numero": "36",
+"complemento": "Casa",
+"bairro": "Copacabana",
+"cidade": "Rio de Janeiro",
+"estado": "rj",
+"cep": "12345678"
+}
+}
+*CLIENTE 03
+{
+"id": 0,
+"nome": "Maria Antonieta",
+"cpf": "789123456",
+"contato": "22999776688",
+"endereco": {
+"id": 0,
+"rua": "Rua das Palmeiras",
+"numero": "15",
+"complemento": "Casa",
+"bairro": "Leblon",
+"cidade": "Rio de Janeiro",
+"estado": "rj",
+"cep": "12367845"
+}
+}
+
+*DELETANDO UM CLIENTE:
+Primeiro identifica o cliente através de sua ID, depois executa o DELETE com o referido ID;
+
+*ALTERANDO UM CLIENTE
+{
+"id": 	//CONFERIR ID NO GET CLIENTE//
+"nome": "Maria Antonieta",
+"cpf": "789123456",
+"contato": "22999000088",
+"endereco": {
+"id": 0,
+"rua": "Rua das Pedras",
+"numero": "27",
+"complemento": "Casa",
+"bairro": "Algum de lá",
+"cidade": "Aracaju",
+"estado": "SE",
+"cep": "9967845"
+}
+}
+```
+* Cadastrando Equipamento
+``` shell 
+*EQUIPAMENTO 01
+{
+"tipoBike": "SPEED",
+"marca": "Soul",
+"modelo": "3R5",
+"grupoCambio": "Sram Rival",
+"tamQuadro": "52",
+"suspensao": "Garfo Rígido",
+"qtdDisponivel": 4,
+"valorUnitario": 45.70
+}
+*EQUIPAMENTO 02
+{
+"tipoBike": "MTB",
+"marca": "Oggi",
+"modelo": "7.4",
+"grupoCambio": "Shimano SLX",
+"tamQuadro": "17",
+"suspensao": "Ar e Óleo",
+"qtdDisponivel": 8,
+"valorUnitario": 43.25
+}
+*EQUIPAMENTO 03
+{
+"tipoBike": "MTB",
+"marca": "Sense",
+"modelo": "Impact Race",
+"grupoCambio": "Sram GX Eagle",
+"tamQuadro": "17",
+"suspensao": "Ar e Óleo",
+"qtdDisponivel": 6,
+"valorUnitario": 56.70
+}
+
+*DELETANDO UM EQUIPAMENTO:
+Se faz a identificação do equipamento e através de sua ID, executo o DELETE.
+```
+* Realizando uma Simulação/Orçamento de uma alocação.
+``` shell 
+*SIMULAÇÃO 01
+{
+"id": 0,
+"dataRetirada": "2022-05-26",
+"dataDevolucao": "2022-05-18",
+"equipamentoId": 1,
+"locacaoId": 0
+}
+*SIMULAÇÃO 02
+{
+"id": 0,
+"dataRetirada": "2022-06-02",
+"dataDevolucao": "2022-06-11",
+"equipamentoId": 1,
+"locacaoId": 0
+}
+*SIMULAÇÃO 03
+{
+"id": 0,
+"dataRetirada": "2022-07-02",
+"dataDevolucao": "2022-07-04",
+"equipamentoId": 1,
+"locacaoId": 0
+}
+
+*ALTERANDO UMA SIMULAÇÃO:
+{
+"id": 					//PEGAR ALGUM NO GET,
+"dataRetirada": "2022-07-12", 	//ALTERAR CONFORME DESEJO
+"dataDevolucao": "2022-07-14",	//ALTERAR CONFORME DESEJO
+"equipamentoId": 1,			//ALTERAR CONFORME DISPONIBILDIADE
+"locacaoId": 0
+}
+*DELETANDO UMA SIMULAÇÃO
+Se identifica o ID da simulação desejada e realiza o DELETE da mesma. Não é possível deletar uma simulação que já esteja atrelada a uma alocação.
+```
+* Realizando uma Locação
+``` shell 
+*ALUGANDO DIRETO, SEM ORÇAMENTO PRÉVIO:
+{
+"id": 0,
+"clienteId": 4, //VERIFICAR IDs no get cliente
+"equipamento": [
+{
+"id": 0,
+"dataRetirada": "2022-05-18",
+"dataDevolucao": "2022-05-28",
+"equipamentoId": 1, //VERIFICAR IDs no get cliente
+"locacaoId": 0
+}
+]
+}
+*ALUGANDO MAIS DE UM EQUIPAMENTO POR CONTRATO SEM ORÇAMENTO PRÉVIO:
+{
+"id": 0,
+"clienteId": 4, CONFERIR NOS GET CLIENTE
+"equipamento": [
+{
+"id": 0,
+"dataRetirada": "2022-05-20",
+"dataDevolucao": "2022-05-22",
+"equipamentoId": 1, CONFERIR NO GET
+"locacaoId": 0
+},
+{
+"id": 0,
+"dataRetirada": "2022-05-22",
+"dataDevolucao": "2022-05-25",
+"equipamentoId": 1, CONFERIR NO GET
+"locacaoId": 0
+}
+]
+}
+*ALUGANDO ATRAVÉS DE UM ORÇAMENTO PRÉVIO:
+{
+"id": 0,
+"clienteId": 4,
+"equipamento": [
+{
+"id": 77,
+"equipamentoId": 1
+}
+]
+}
+*ALUGANDO MAIS DE UM EQUIPAMENTO POR CONTRATO COM ORÇAMENTO PRÉVIO.
+{
+"id": 0,
+"clienteId": 4, //CONFERIR NO GET
+"equipamento": [
+{
+"id": 80,
+"equipamentoId": 1 //CONFERIR NO GET
+},
+{
+"id": 81,
+"equipamentoId": 1 //CONFERIR NO GET
+}
+]
+}
+*CANCELANDO UMA ALOCAÇÃO:
+Basta identificar a locação desejada e através de seu ID executar um DELETE.
+```
