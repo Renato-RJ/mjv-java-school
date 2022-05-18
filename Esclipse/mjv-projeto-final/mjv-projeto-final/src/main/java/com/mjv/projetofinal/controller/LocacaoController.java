@@ -15,7 +15,7 @@ public class LocacaoController {
 	
 	@Autowired
 	LocacaoRepository locacaoRepository;
-	
+		
 	@Autowired
 	private LocacaoService rep;
 	

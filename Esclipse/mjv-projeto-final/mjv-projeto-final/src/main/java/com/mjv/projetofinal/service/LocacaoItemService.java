@@ -1,6 +1,8 @@
 package com.mjv.projetofinal.service;
 
+import com.mjv.projetofinal.model.Equipamento;
 import com.mjv.projetofinal.model.LocacaoItem;
+import com.mjv.projetofinal.repository.EquipamentoRepository;
 import com.mjv.projetofinal.repository.LocacaoItemRepository;
 
 import org.springframework.stereotype.Service;
@@ -15,18 +17,17 @@ public class LocacaoItemService {
 	@Autowired
 	private LocacaoItemRepository rep;
 	
+	@Autowired
+	private EquipamentoRepository equip;
+	
 	public void gravar(LocacaoItem locacaoItem) {
 		Long quantidadeDias = 0L;
-		Double valorDiaria = 0.0;
-		Double subtotal = 0.0;
 		
 		quantidadeDias = (long) Math.toIntExact(ChronoUnit.DAYS.between(locacaoItem.getDataRetirada(), locacaoItem.getDataDevolucao()));
-		valorDiaria = locacaoItem.getValorDiaria();
-		subtotal = quantidadeDias * valorDiaria;
-		
-		//locacaoItem.setValorDiaria(valorDiaria);
+		Equipamento equipamento = equip.getById(locacaoItem.getEquipamentoId());
+		locacaoItem.setValorDiaria(equipamento.getValorUnitario());
+		locacaoItem.setSubtotal(quantidadeDias *locacaoItem.getValorDiaria());
 		locacaoItem.setQuantidadeDias(quantidadeDias);
-		locacaoItem.setSubtotal(subtotal);
 		rep.save(locacaoItem);
 	}
 }
