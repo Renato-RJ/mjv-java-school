@@ -23,7 +23,7 @@ Disponibilizar o link do github do projeto bem descrito quanto às funcionalidad
  
 ## ⚙️ LocaBike - Projeto Final / Repositório 
 
-- [Repositório do Projeto](https://github.com/BrunoAMieli/mjv-projetoFinal)
+- [Repositório do Projeto](https://github.com/Renato-RJ/mjv-java-school/tree/main/Esclipse/mjv-projeto-final/mjv-projeto-final)
 
   
 
