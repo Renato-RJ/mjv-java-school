@@ -23,9 +23,9 @@ public class EquipamentoController {
 	public List<Equipamento> listar(){
 		return equipamentoRepository.findAll();
 		}
-	@DeleteMapping("{id}")
-	public void deletar(@PathVariable Integer id, @RequestBody Equipamento equipamento) {
-		equipamentoRepository.delete(equipamento);
+	@DeleteMapping("/{id}")
+	public void deletar(@PathVariable ("id") Integer id) {
+		equipamentoRepository.deleteById(id);
 	}
 	
 }

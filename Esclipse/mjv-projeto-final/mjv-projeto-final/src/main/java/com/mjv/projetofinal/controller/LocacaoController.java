@@ -7,16 +7,21 @@ import org.springframework.web.bind.annotation.*;
 
 import com.mjv.projetofinal.model.Locacao;
 import com.mjv.projetofinal.repository.LocacaoRepository;
+import com.mjv.projetofinal.service.LocacaoService;
 
 @RestController
 @RequestMapping("/locacao")
 public class LocacaoController {
+	
 	@Autowired
-	private LocacaoRepository locacaoRepository;
+	LocacaoRepository locacaoRepository;
+	
+	@Autowired
+	private LocacaoService rep;
 	
 	@PostMapping
 	public void gravar(@RequestBody Locacao locacao) {
-		locacaoRepository.save(locacao);
+		rep.gravar(locacao);
 	}
 	@GetMapping
 	public List<Locacao> listar(){

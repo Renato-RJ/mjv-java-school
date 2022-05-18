@@ -5,7 +5,6 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
-import com.mjv.projetofinal.model.Equipamento;
 import com.mjv.projetofinal.model.LocacaoItem;
 import com.mjv.projetofinal.repository.LocacaoItemRepository;
 import com.mjv.projetofinal.service.LocacaoItemService;
@@ -23,15 +22,24 @@ public class LocacaoItemController {
 	@PostMapping
 	public void gravar(@RequestBody LocacaoItem locacaoItem) {
 		servico.gravar(locacaoItem);
+		
 	}
-
+	@PutMapping
+	public void alterar(@RequestBody LocacaoItem locacaoItem) {
+		servico.gravar(locacaoItem);
+	}
+	
 	@GetMapping
 	public List<LocacaoItem> listar() {
 		return locacaoItemRepository.findAll();
 	}
-
-	@DeleteMapping("{id}")
-	public void deletar(@PathVariable Integer id, @RequestBody LocacaoItem locacaoItem) {
-		locacaoItemRepository.delete(locacaoItem);
+	@GetMapping("/{id}")
+	public LocacaoItem buscar(@PathVariable ("id") Integer id ) {
+		return locacaoItemRepository.findById(id).orElse(null);
+	}
+	
+	@DeleteMapping("/{id}")
+	public void deletar(@PathVariable ("id") Integer id ) {
+		locacaoItemRepository.deleteById(id);
 	}
 }

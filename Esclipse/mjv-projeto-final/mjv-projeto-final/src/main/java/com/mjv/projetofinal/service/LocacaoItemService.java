@@ -1,6 +1,5 @@
 package com.mjv.projetofinal.service;
 
-import com.mjv.projetofinal.model.Equipamento;
 import com.mjv.projetofinal.model.LocacaoItem;
 import com.mjv.projetofinal.repository.LocacaoItemRepository;
 

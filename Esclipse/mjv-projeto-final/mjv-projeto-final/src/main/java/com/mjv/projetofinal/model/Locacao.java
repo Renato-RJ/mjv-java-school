@@ -12,17 +12,27 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 public class Locacao {
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	@JsonIgnore
+	//@JsonIgnore
 	private Integer id;
 	@JsonIgnore
 	private LocalDate data;
-	@Column(name="cliente_id")
+	//@Column(name="cliente_id")
+	@JoinColumn(name="cliente_id")
 	private Integer clienteId;
 	@Column (name="valor_final", columnDefinition="decimal(7,2)")
 	private double valorFinal;
-	@OneToMany
-	@JoinColumn(name="locacao_item_id")
-	private List <LocacaoItem> itens;
+	@OneToMany(cascade = CascadeType.ALL)
+	@JoinColumn(name="locacao_id")
+	private List <LocacaoItem> equipamento;
+	
+	
+	
+	public Integer getId() {
+		return id;
+	}
+	public void setId(Integer id) {
+		this.id = id;
+	}
 	public LocalDate getData() {
 		return data;
 	}
@@ -41,10 +51,11 @@ public class Locacao {
 	public void setValorFinal(double valorFinal) {
 		this.valorFinal = valorFinal;
 	}
-	public List<LocacaoItem> getItens() {
-		return itens;
+	public List<LocacaoItem> getEquipamento() {
+		return equipamento;
 	}
-	public void setItens(List<LocacaoItem> itens) {
-		this.itens = itens;
+	public void setEquipamento(List<LocacaoItem> equipamento) {
+		this.equipamento = equipamento;
 	}
+	
 }

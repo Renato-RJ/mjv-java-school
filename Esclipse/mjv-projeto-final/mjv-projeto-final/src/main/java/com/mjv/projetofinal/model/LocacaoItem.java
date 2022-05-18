@@ -9,37 +9,43 @@ import javax.persistence.*;
 
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.mjv.projetofinal.repository.EquipamentoRepository;
  
 @Entity
 @Table(name = "locacao_item")
 public class LocacaoItem {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@JsonIgnore
 	private Integer id;
 	@Column(name = "subtotal")
-	@JsonIgnore
 	private Double subtotal;
 	@Column(name = "data_retirada")
 	private LocalDate dataRetirada;
 	@Column(name = "data_devolucao")
 	private LocalDate dataDevolucao;
 	@Column(name = "quantidade_dias")
-	@JsonIgnore
 	private Long quantidadeDias;
-	@ManyToOne(fetch = FetchType.LAZY)
-	@JoinColumn(name="equipamento_id")
-	private Equipamento equipamento;
+	@Column(name="equipamento_id")
+	private Integer equipamentoId;
 	@Column(name = "valor_diaria")
 	private Double valorDiaria;
-
-	public Equipamento getEquipamento() {
-		return equipamento;
+	@Column(name="locacao_id")
+	private Integer locacaoId;
+	public Integer getLocacaoId() {
+		return locacaoId;
+	}
+	public void setLocacaoId(Integer locacaoId) {
+		this.locacaoId = locacaoId;
 	}
 	
-	public void setEquipamento(Equipamento equipamento) {
-		this.equipamento = equipamento;;
+	public Integer getEquipamentoId() {
+		return equipamentoId;
 	}
+
+	public void setEquipamentoId(Integer equipamentoId) {
+		this.equipamentoId = equipamentoId;
+	}
+
 	public Double getValorDiaria() {
 		return valorDiaria;
 	}
