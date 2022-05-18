@@ -12,6 +12,7 @@ public class Cliente{
 	private Integer id;
 	private String nome, cpf, contato;
 	@OneToOne(cascade=CascadeType.ALL)
+	@JoinColumn(name="endereco_id")
 	private Endereco endereco;
 	public Integer getId() {
 		return id;

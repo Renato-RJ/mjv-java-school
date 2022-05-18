@@ -28,7 +28,7 @@ public class LocacaoController {
 		return locacaoRepository.findAll();
 		}
 	@DeleteMapping("{id}")
-	public void deletar(@PathVariable Integer id, @RequestBody Locacao locacao) {
-		locacaoRepository.delete(locacao);
+	public void deletar(@PathVariable ("id") Integer id) {
+		locacaoRepository.deleteById(id);
 	}
 }
