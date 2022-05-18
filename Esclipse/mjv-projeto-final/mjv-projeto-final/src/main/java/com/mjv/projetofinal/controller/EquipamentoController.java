@@ -5,7 +5,6 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
-import com.mjv.projetofinal.model.Cliente;
 import com.mjv.projetofinal.model.Equipamento;
 import com.mjv.projetofinal.repository.EquipamentoRepository;
 

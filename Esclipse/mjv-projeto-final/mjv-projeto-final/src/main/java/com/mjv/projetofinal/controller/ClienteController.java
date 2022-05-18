@@ -6,13 +6,12 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import com.mjv.projetofinal.model.Cliente;
-import com.mjv.projetofinal.model.LocacaoItem;
 import com.mjv.projetofinal.repository.ClienteRepository;
 
 @RestController
 @RequestMapping("/cliente")
 public class ClienteController {
-		@Autowired
+	@Autowired
 	private ClienteRepository clienteRepository;
 	
 	@PostMapping

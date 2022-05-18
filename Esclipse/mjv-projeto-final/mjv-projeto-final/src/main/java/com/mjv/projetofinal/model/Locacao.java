@@ -12,11 +12,9 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 public class Locacao {
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	//@JsonIgnore
 	private Integer id;
 	@JsonIgnore
 	private LocalDate data;
-	//@Column(name="cliente_id")
 	@JoinColumn(name="cliente_id")
 	private Integer clienteId;
 	@Column (name="valor_final", columnDefinition="decimal(7,2)")

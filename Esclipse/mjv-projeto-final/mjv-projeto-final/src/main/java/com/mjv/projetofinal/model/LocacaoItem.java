@@ -1,16 +1,10 @@
 package com.mjv.projetofinal.model;
 
 import java.time.LocalDate;
-import java.time.temporal.ChronoUnit;
 import java.util.Objects;
 
 import javax.persistence.*;
 
-
-
-import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.mjv.projetofinal.repository.EquipamentoRepository;
- 
 @Entity
 @Table(name = "locacao_item")
 public class LocacaoItem {
